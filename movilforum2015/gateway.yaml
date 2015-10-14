@@ -1,0 +1,38 @@
+---
+vnf:
+    name: gateway
+    description: Gateway and management entry point
+    class:       TELEFONICA
+    external-connections:
+    -   name:              eth0
+        type:              bridge
+        VNFC:              gateway
+        local_iface_name:  eth0
+        description:       Bridge interface, request for dhcp
+    -   name:              eth1
+        type:              mgmt       # "mgmt"(autoconnect to management net), "bridge", "data"
+        VNFC:              gateway      # Virtual Machine this interface belongs to
+        local_iface_name:  eth1       # name inside this Virtual Machine
+        description:       Connectivity to the management network
+    VNFC:                              # Virtual machine array
+    -   name:        gateway       # name of Virtual Machine
+        description: simple gateway
+        VNFC image: /home/static_storage/man_gateway.qcow2
+        processor:                     #Optional, leave it
+            model: Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz
+            features: ["64b", "iommu", "lps", "tlbps", "hwsv", "dioc", "ht"]
+        hypervisor:                    #Optional, leave it
+            type: QEMU-kvm
+            version: "10002|12001|2.6.32-358.el6.x86_64"
+        numas:
+        -   paired-threads: 1          # "cores", "paired-threads", "threads"
+            memory:         1          # GiB
+            interfaces: []
+        bridge-ifaces:
+        -   name:      eth0
+            vpci:      "0000:00:0a.0"    # Optional
+            bandwidth: 1 Mbps          # Optional, informative only
+        -   name:      eth1
+            vpci:      "0000:00:0b.0"
+            bandwidth: 1 Mbps
+

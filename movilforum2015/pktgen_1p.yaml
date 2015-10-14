@@ -1,0 +1,41 @@
+---
+vnf:
+    name:         pktgen_1p
+    class:        Intel
+    description:  DPDK traffic generator
+    external-connections:
+    -   name:              mgmt0
+        type:              bridge 
+        VNFC:              pktgen
+        local_iface_name:  mgmt0
+        description:       Management interface
+    -   name:              xe0
+        type:              data
+        VNFC:              pktgen
+        local_iface_name:  xe0
+        description:       Data interface 1
+    VNFC:                              # Virtual machine array
+    -   name:        pktgen       # name of Virtual Machine
+        description: DPDK traffic generator with 1 data port
+        VNFC image:  /home/static_storage/CentOS-pk-gen.qcow2
+        processor:                     #Optional, leave it
+            model: Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz
+            features: ["64b", "iommu", "lps", "tlbps", "hwsv", "dioc", "ht"]
+        hypervisor:                     #Optional, leave it
+            type: QEMU-kvm
+            version: "10002|12001|2.6.32-358.el6.x86_64"
+        numas:
+        -   paired-threads: 2          # "cores", "paired-threads", "threads"
+            memory: 1                  # GBytes
+            interfaces:
+            -   name:      xe0
+                vpci:      "0000:00:10.0"
+                dedicated: "yes"        # "yes"(passthrough), "no"(sriov)
+                bandwidth: 10 Gbps
+        bridge-ifaces:
+        -   name:      mgmt0
+            vpci:      "0000:00:0a.0"
+            bandwidth: 10 Mbps
+            model:     e1000
+
+

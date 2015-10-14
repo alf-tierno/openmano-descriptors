@@ -1,0 +1,423 @@
+#This file was created by openmano/scripts/host-add-develop.sh
+#for adding this compute node to openvim
+#copy this file to openvim controller and run
+#openvim host-add <this>
+
+host:
+  name:    developer_host
+  user:    student
+  ip_name: 10.10.0.1
+host-data:
+  name:        developer_host
+  user:        student
+  ip_name:     10.10.0.1
+  ranking:     100
+  description: developer_host
+  features:    lps,dioc,hwsv,tlbps,ht,lps,64b,iommu
+  numas:
+  - numa_socket:  0
+    hugepages: 30
+    memory:    32
+    cores:
+    - core_id:   0
+      thread_id: 0
+      status:    noteligible
+    - core_id:   0
+      thread_id: 20
+      status:    noteligible
+    - core_id:   1
+      thread_id: 2
+    - core_id:   1
+      thread_id: 22
+    - core_id:   2
+      thread_id: 4
+    - core_id:   2
+      thread_id: 24
+    - core_id:   3
+      thread_id: 6
+    - core_id:   3
+      thread_id: 26
+    - core_id:   4
+      thread_id: 8
+    - core_id:   4
+      thread_id: 28
+    - core_id:   5
+      thread_id: 10
+    - core_id:   5
+      thread_id: 30
+    - core_id:   6
+      thread_id: 12
+    - core_id:   6
+      thread_id: 32
+    - core_id:   7
+      thread_id: 14
+    - core_id:   7
+      thread_id: 34
+    - core_id:   8
+      thread_id: 16
+    - core_id:   8
+      thread_id: 36
+    - core_id:   9
+      thread_id: 18
+    - core_id:   9
+      thread_id: 38
+    interfaces:
+    - source_name: iface0
+      Mbps: 10000
+      pci: "0000:00:00.0"
+      mac: "02:00:05:00:02:06"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/0
+      sriovs:
+      - mac: "02:00:05:00:02:07"
+        pci: "0000:00:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:05:00:02:08"
+        pci: "0000:00:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:05:00:02:09"
+        pci: "0000:00:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:05:00:02:0A"
+        pci: "0000:00:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:05:00:02:0B"
+        pci: "0000:00:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:05:00:02:0C"
+        pci: "0000:00:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:05:00:02:0D"
+        pci: "0000:00:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:05:00:02:0E"
+        pci: "0000:00:10.7"
+        source_name: 7
+        vlan: 107
+    - source_name: iface1
+      Mbps: 10000
+      pci: "0000:02:00.0"
+      mac: "02:00:05:00:02:0F"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/1
+      sriovs:
+      - mac: "02:00:05:00:03:00"
+        pci: "0000:02:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:05:00:03:01"
+        pci: "0000:02:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:05:00:03:02"
+        pci: "0000:02:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:05:00:03:03"
+        pci: "0000:02:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:05:00:03:04"
+        pci: "0000:02:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:05:00:03:05"
+        pci: "0000:02:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:05:00:03:06"
+        pci: "0000:02:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:05:00:03:07"
+        pci: "0000:02:10.7"
+        source_name: 7
+        vlan: 107
+    - source_name: iface2
+      Mbps: 10000
+      pci: "0000:04:00.0"
+      mac: "02:00:05:00:03:08"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/2
+      sriovs:
+      - mac: "02:00:05:00:03:09"
+        pci: "0000:04:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:05:00:03:0A"
+        pci: "0000:04:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:05:00:03:0B"
+        pci: "0000:04:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:05:00:03:0C"
+        pci: "0000:04:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:05:00:03:0D"
+        pci: "0000:04:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:05:00:03:0E"
+        pci: "0000:04:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:05:00:03:0F"
+        pci: "0000:04:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:05:00:04:00"
+        pci: "0000:04:10.7"
+        source_name: 7
+        vlan: 107
+    - source_name: iface3
+      Mbps: 10000
+      pci: "0000:06:00.0"
+      mac: "02:00:05:00:04:01"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/3
+      sriovs:
+      - mac: "02:00:05:00:04:02"
+        pci: "0000:06:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:05:00:04:03"
+        pci: "0000:06:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:05:00:04:04"
+        pci: "0000:06:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:05:00:04:05"
+        pci: "0000:06:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:05:00:04:06"
+        pci: "0000:06:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:05:00:04:07"
+        pci: "0000:06:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:05:00:04:08"
+        pci: "0000:06:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:05:00:04:09"
+        pci: "0000:06:10.7"
+        source_name: 7
+        vlan: 107
+  - numa_socket:  1
+    hugepages: 30
+    memory:    32
+    cores:
+    - core_id:   0
+      thread_id: 1
+      status:    noteligible
+    - core_id:   0
+      thread_id: 21
+      status:    noteligible
+    - core_id:   1
+      thread_id: 3
+    - core_id:   1
+      thread_id: 23
+    - core_id:   2
+      thread_id: 5
+    - core_id:   2
+      thread_id: 25
+    - core_id:   3
+      thread_id: 7
+    - core_id:   3
+      thread_id: 27
+    - core_id:   4
+      thread_id: 9
+    - core_id:   4
+      thread_id: 29
+    - core_id:   5
+      thread_id: 11
+    - core_id:   5
+      thread_id: 31
+    - core_id:   6
+      thread_id: 13
+    - core_id:   6
+      thread_id: 33
+    - core_id:   7
+      thread_id: 15
+    - core_id:   7
+      thread_id: 35
+    - core_id:   8
+      thread_id: 17
+    - core_id:   8
+      thread_id: 37
+    - core_id:   9
+      thread_id: 19
+    - core_id:   9
+      thread_id: 39
+    interfaces:
+    - source_name: iface4
+      Mbps: 10000
+      pci: "0000:44:00.0"
+      mac: "02:00:06:0F:03:0C"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/4
+      sriovs:
+      - mac: "02:00:06:0F:03:0D"
+        pci: "0000:44:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:06:0F:03:0E"
+        pci: "0000:44:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:06:0F:03:0F"
+        pci: "0000:44:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:06:0F:04:00"
+        pci: "0000:44:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:06:0F:04:01"
+        pci: "0000:44:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:06:0F:04:02"
+        pci: "0000:44:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:06:0F:04:03"
+        pci: "0000:44:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:06:0F:04:04"
+        pci: "0000:44:10.7"
+        source_name: 7
+        vlan: 107
+    - source_name: iface5
+      Mbps: 10000
+      pci: "0000:46:00.0"
+      mac: "02:00:06:0F:04:05"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/5
+      sriovs:
+      - mac: "02:00:06:0F:04:06"
+        pci: "0000:46:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:06:0F:04:07"
+        pci: "0000:46:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:06:0F:04:08"
+        pci: "0000:46:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:06:0F:04:09"
+        pci: "0000:46:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:06:0F:04:0A"
+        pci: "0000:46:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:06:0F:04:0B"
+        pci: "0000:46:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:06:0F:04:0C"
+        pci: "0000:46:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:06:0F:04:0D"
+        pci: "0000:46:10.7"
+        source_name: 7
+        vlan: 107
+    - source_name: iface6
+      Mbps: 10000
+      pci: "0000:48:00.0"
+      mac: "02:00:06:0F:04:0E"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/6
+      sriovs:
+      - mac: "02:00:06:0F:04:0F"
+        pci: "0000:48:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:06:0F:05:00"
+        pci: "0000:48:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:06:0F:05:01"
+        pci: "0000:48:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:06:0F:05:02"
+        pci: "0000:48:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:06:0F:05:03"
+        pci: "0000:48:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:06:0F:05:04"
+        pci: "0000:48:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:06:0F:05:05"
+        pci: "0000:48:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:06:0F:05:06"
+        pci: "0000:48:10.7"
+        source_name: 7
+        vlan: 107
+    - source_name: iface7
+      Mbps: 10000
+      pci: "0000:4A:00.0"
+      mac: "02:00:06:0F:05:07"
+      switch_dpid: "01:02:03:04:05:06"
+      switch_port: fake0/7
+      sriovs:
+      - mac: "02:00:06:0F:05:08"
+        pci: "0000:4A:10.0"
+        source_name: 0
+        vlan: 100
+      - mac: "02:00:06:0F:05:09"
+        pci: "0000:4A:10.1"
+        source_name: 1
+        vlan: 101
+      - mac: "02:00:06:0F:05:0A"
+        pci: "0000:4A:10.2"
+        source_name: 2
+        vlan: 102
+      - mac: "02:00:06:0F:05:0B"
+        pci: "0000:4A:10.3"
+        source_name: 3
+        vlan: 103
+      - mac: "02:00:06:0F:05:0C"
+        pci: "0000:4A:10.4"
+        source_name: 4
+        vlan: 104
+      - mac: "02:00:06:0F:05:0D"
+        pci: "0000:4A:10.5"
+        source_name: 5
+        vlan: 105
+      - mac: "02:00:06:0F:05:0E"
+        pci: "0000:4A:10.6"
+        source_name: 6
+        vlan: 106
+      - mac: "02:00:06:0F:05:0F"
+        pci: "0000:4A:10.7"
+        source_name: 7
+        vlan: 107

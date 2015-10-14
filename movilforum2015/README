@@ -1,0 +1,6 @@
+These folder contain descriptors used in the training at Movilforum 2015
+(See  http://movilforum.com/presentaciones-nfv/)
+
+Note that you need to edit and set the right parameters at "developer_host.yaml",
+regarding the "user" and "ip_name"
+

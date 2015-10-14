@@ -1,0 +1,50 @@
+---
+vnf:
+    name:         l3fwd
+    class:        Intel
+    description:  DPDK development machine
+    external-connections:
+    -   name:              mgmt0
+        type:              mgmt
+        VNFC:              l3forward
+        local_iface_name:  mgmt0
+        description:       Management interface
+    -   name:              xe0
+        type:              data
+        VNFC:              l3forward
+        local_iface_name:  xe0
+        description:       Data interface 1
+    -   name:              xe1
+        type:              data
+        VNFC:              l3forward
+        local_iface_name:  xe1
+        description:       Data interface 2
+    VNFC:                              # Virtual machine array
+    -   name:        l3forward       # name of Virtual Machine
+        description: DPDK development machine
+        VNFC image:  /home/static_storage/CentOS-dpdk.qcow2
+        processor:                     #Optional, leave it
+            model: Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz
+            features: ["64b", "iommu", "lps", "tlbps", "hwsv", "dioc", "ht"]
+        hypervisor:                     #Optional, leave it
+            type: QEMU-kvm
+            version: "10002|12001|2.6.32-358.el6.x86_64"
+        numas:
+        -   paired-threads: 2          # "cores", "paired-threads", "threads"
+            memory: 1                  # GBytes
+            interfaces:
+            -   name:      xe0
+                vpci:      "0000:00:10.0"
+                dedicated: "yes"        # "yes"(passthrough), "no"(sriov)
+                bandwidth: 10 Gbps
+            -   name:      xe1
+                vpci:      "0000:00:11.0"
+                dedicated: "yes"
+                bandwidth: 10 Gbps
+        bridge-ifaces:
+        -   name:      mgmt0
+            vpci:      "0000:00:0a.0"
+            bandwidth: 10 Mbps
+            model:     e1000
+
+

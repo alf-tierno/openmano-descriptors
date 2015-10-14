@@ -1,0 +1,8 @@
+network:
+    admin_state_up: true
+    name: default
+    provider:physical: default
+    shared: true
+    status: ACTIVE
+    type: bridge_man
+

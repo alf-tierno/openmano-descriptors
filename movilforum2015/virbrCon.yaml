@@ -1,0 +1,8 @@
+network:
+    admin_state_up: true
+    name: bridge_con
+    provider:physical: bridge:virbrCon
+    shared: true
+    status: ACTIVE
+    type: bridge_man
+

@@ -1,0 +1,114 @@
+name: dpdk_training
+topology: 
+  nodes: 
+    gateway: 
+      graph: 
+        x: 850
+        y: 313
+        ifaces: 
+          bottom: 
+            - - eth1
+              - m
+            - - eth0
+              - v
+      type: VNF
+      VNF model: gateway
+    l3fwd: 
+      graph: 
+        x: 334
+        y: 363
+        ifaces: 
+          left: 
+            - - xe0
+              - d
+            - - xe1
+              - d
+          bottom: 
+            - - mgmt0
+              - m
+      type: VNF
+      VNF model: l3fwd
+    pktgen_1p: 
+      graph: 
+        x: 336
+        y: 145
+        ifaces: 
+          left: 
+            - - xe0
+              - d
+          bottom: 
+            - - mgmt0
+              - v
+      type: VNF
+      VNF model: pktgen_1p
+    pktsink_1p: 
+      graph: 
+        x: 328
+        y: 577
+        ifaces: 
+          left: 
+            - - xe0
+              - d
+          bottom: 
+            - - mgmt0
+              - v
+      type: VNF
+      VNF model: pktsink_1p
+    bridge_con: 
+      graph: 
+        x: 1074
+        y: 321
+        ifaces: 
+          bottom: 
+            - - "0"
+              - v
+      type: external_network
+      model: bridge_con
+    bridge_net: 
+      graph: 
+        x: 600
+        y: 257
+        ifaces: 
+          bottom: 
+            - - "0"
+              - v
+      type: network
+      model: bridge_net
+  connections: 
+    connection 0: 
+      type: link
+      nodes: 
+        - bridge_con: "0"
+        - gateway: eth0
+    connection 1: 
+      type: link
+      nodes: 
+        - bridge_net: "0"
+        - l3fwd: mgmt0
+    connection 2: 
+      type: link
+      nodes: 
+        - bridge_net: "0"
+        - gateway: eth1
+    connection 3: 
+      type: link
+      nodes: 
+        - bridge_net: "0"
+        - pktgen_1p: mgmt0
+    connection 4: 
+      type: link
+      nodes: 
+        - bridge_net: "0"
+        - pktsink_1p: mgmt0
+    connection 5: 
+      type: link
+      nodes: 
+        - l3fwd: xe1
+        - pktsink_1p: xe0
+    connection 6: 
+      type: link
+      nodes: 
+        - l3fwd: xe0
+        - pktgen_1p: xe0
+description: DPDK training scenario
+
