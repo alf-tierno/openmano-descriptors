@@ -1,4 +1,4 @@
-These folder contain descriptors used in the training at Movilforum 2015
+This folder contains the descriptors used in the Movilforum 2015 training
 (See  http://movilforum.com/presentaciones-nfv/)
 
 Note that you need to edit and set the right parameters at "developer_host.yaml",
